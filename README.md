@@ -12,13 +12,14 @@
 ```text
 請用繁體中文，幫我建立「馬光醫療網工作知識庫」，體驗 Andrej Karpathy 的 LLM Wiki 架構。
 
-1. 下載範本：把 GitHub 上的 blackrocx0/maguang-llm-wiki 專案下載到目前資料夾，存成 maguang-llm-wiki 子資料夾。優先用 git clone；電腦沒有 git 的話，改下載 main 分支的 zip 壓縮檔再解壓縮。如果目前資料夾已經有 AGENTS.md，代表下載過了，跳過這步。如果需要網路權限，請提醒我按允許。
+1. 下載範本：把 GitHub 上的 blackrocx0/maguang-llm-wiki 專案直接下載到目前資料夾，不要建立子資料夾。目前資料夾若已經有其他檔案，保留原有檔案，只把範本內容放進來。優先用 git；電腦沒有 git 的話，改下載 main 分支的 zip 壓縮檔，解壓縮後把內容搬到目前資料夾。如果目前資料夾已經有 AGENTS.md，代表下載過了，跳過這步。如果需要網路權限，請提醒我按允許。
 
-2. 下載完成後，打開 maguang-llm-wiki 資料夾裡的 START.md，照裡面的步驟完成準備，最後依 START.md 的格式回報。先不要執行 ingest，我會自己輸入。
+2. 下載完成後，打開 START.md，照裡面的步驟完成準備，最後依 START.md 的格式回報。先不要執行 ingest，我會自己輸入。
 ```
 
-3. Codex 會自動下載這個範本，再依 [`START.md`](START.md) 讀懂規則、盤點素材，然後停下來。
-4. 自己輸入 `$ingest`，看 AI 把 38 份素材整理成互相連結的 wiki（約 5–10 分鐘）。
+3. Codex 會把範本下載到目前資料夾，再依 [`START.md`](START.md) 讀懂規則、盤點素材，然後停下來。
+4. 開一個新對話（專案資料夾不變），輸入 `$` 確認看得到 ingest、query、lint、capture 四個技能。技能只會在對話開始時載入，所以這一步不能省。
+5. 輸入 `$ingest`，看 AI 把 38 份素材整理成互相連結的 wiki（約 5–10 分鐘）。
 
 下載時如果 Codex 請求網路權限，請按允許。
 
@@ -49,7 +50,7 @@ maguang-llm-wiki/
 | `$lint` | 檢查孤立頁、壞連結、矛盾、過時、空白頁、個資、未消化素材 | `$lint` |
 | `$capture` | 對話中提到新規定、決議、數據時，自動存成 raw/ 新檔並更新 wiki | 自動判斷 |
 
-技能只有在 Codex 以 `maguang-llm-wiki` 資料夾為專案開啟時才會自動載入。
+技能只有在 Codex 以範本所在資料夾為專案、開新對話時才會自動載入。
 
 ## 素材清單（38 份）
 
