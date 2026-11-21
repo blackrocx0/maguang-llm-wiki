@@ -7,17 +7,28 @@
 ## 怎麼開始
 
 1. 打開 Codex（App、CLI 或 IDE 擴充都可以），選一個空資料夾作為專案。
-2. 把 [`PROMPT.md`](PROMPT.md) 的全文貼進 Codex 送出。
-3. Codex 會自動下載這個範本、讀懂規則、消化全部素材，最後示範一次問答。
+2. 把下面這段提示詞（與 [`PROMPT.md`](PROMPT.md) 相同）貼進 Codex 送出：
 
-整個過程約 10–20 分鐘，視模型速度而定。下載時如果 Codex 請求網路權限，請按允許。
+```text
+請用繁體中文，幫我建立「馬光醫療網工作知識庫」，體驗 Andrej Karpathy 的 LLM Wiki 架構。
+
+1. 下載範本：把 GitHub 上的 blackrocx0/maguang-llm-wiki 專案下載到目前資料夾，存成 maguang-llm-wiki 子資料夾。優先用 git clone；電腦沒有 git 的話，改下載 main 分支的 zip 壓縮檔再解壓縮。如果目前資料夾已經有 AGENTS.md，代表下載過了，跳過這步。如果需要網路權限，請提醒我按允許。
+
+2. 下載完成後，打開 maguang-llm-wiki 資料夾裡的 START.md，照裡面的步驟完成準備，最後依 START.md 的格式回報。先不要執行 ingest，我會自己輸入。
+```
+
+3. Codex 會自動下載這個範本，再依 [`START.md`](START.md) 讀懂規則、盤點素材，然後停下來。
+4. 自己輸入 `$ingest`，看 AI 把 38 份素材整理成互相連結的 wiki（約 5–10 分鐘）。
+
+下載時如果 Codex 請求網路權限，請按允許。
 
 ## 資料夾結構
 
 ```
 maguang-llm-wiki/
 ├── AGENTS.md              ← 規則檔（Codex 每次開啟都會自動讀）
-├── PROMPT.md              ← 學員貼上 Codex 的提示詞
+├── PROMPT.md              ← 學員貼上 Codex 的短提示詞
+├── START.md               ← 下載後 Codex 照著做的準備步驟
 ├── .agents/skills/        ← 四個技能，輸入 $ 呼叫
 │   ├── ingest/SKILL.md    ← 消化 raw/ 新素材
 │   ├── query/SKILL.md     ← 從 wiki 找答案
